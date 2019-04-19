@@ -27,7 +27,7 @@ use Asm\Ansible\Process\ProcessBuilderInterface;
 final class Ansible
 {
 
-    const DEFAULT_TIMEOUT = 300;
+    protected const DEFAULT_TIMEOUT = 300;
 
     /**
      * @var string
@@ -63,7 +63,7 @@ final class Ansible
         $this->playbookCommand = $this->checkCommand($playbookCommand, 'ansible-playbook');
         $this->galaxyCommand = $this->checkCommand($galaxyCommand, 'ansible-galaxy');
 
-        $this->timeout = Ansible::DEFAULT_TIMEOUT;
+        $this->timeout = self::DEFAULT_TIMEOUT;
     }
 
     /**

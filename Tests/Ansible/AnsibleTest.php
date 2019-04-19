@@ -13,6 +13,7 @@ namespace Asm\Tests\Ansible;
 use Asm\Ansible\Ansible;
 use Asm\Ansible\Command\AnsibleGalaxy;
 use Asm\Ansible\Command\AnsiblePlaybook;
+use Asm\Ansible\Exception\CommandException;
 use Asm\Test\AnsibleTestCase;
 use org\bovigo\vfs\vfsStream;
 
@@ -23,23 +24,23 @@ class AnsibleTest extends AnsibleTestCase
      * @covers \Asm\Ansible\Ansible::checkDir
      * @covers \Asm\Ansible\Ansible::__construct
      */
-    public function testInstance()
+    public function testInstance(): void
     {
         $ansible = new Ansible(
             $this->getProjectUri(),
             $this->getPlaybookUri(),
             $this->getGalaxyUri()
         );
-        $this->assertInstanceOf('\Asm\Ansible\Ansible', $ansible, 'Instantiation with given paths');
+        $this->assertInstanceOf(Ansible::class, $ansible, 'Instantiation with given paths');
     }
 
     /**
-     * @expectedException \Asm\Ansible\Exception\CommandException
+     * @expectedException CommandException
      * @covers \Asm\Ansible\Ansible::checkCommand
      * @covers \Asm\Ansible\Ansible::checkDir
      * @covers \Asm\Ansible\Ansible::__construct
      */
-    public function testAnsibleProjectPathNotFoundException()
+    public function testAnsibleProjectPathNotFoundException(): void
     {
         $ansible = new Ansible(
             'xxxxxxxx',
@@ -49,12 +50,12 @@ class AnsibleTest extends AnsibleTestCase
     }
 
     /**
-     * @expectedException \Asm\Ansible\Exception\CommandException
+     * @expectedException CommandException
      * @covers \Asm\Ansible\Ansible::checkCommand
      * @covers \Asm\Ansible\Ansible::checkDir
      * @covers \Asm\Ansible\Ansible::__construct
      */
-    public function testAnsibleCommandNotFoundException()
+    public function testAnsibleCommandNotFoundException(): void
     {
         $ansible = new Ansible(
             $this->getProjectUri(),
@@ -64,12 +65,12 @@ class AnsibleTest extends AnsibleTestCase
     }
 
     /**
-     * @expectedException \Asm\Ansible\Exception\CommandException
+     * @expectedException CommandException
      * @covers \Asm\Ansible\Ansible::checkCommand
      * @covers \Asm\Ansible\Ansible::checkDir
      * @covers \Asm\Ansible\Ansible::__construct
      */
-    public function testAnsibleNoCommandGivenException()
+    public function testAnsibleNoCommandGivenException(): void
     {
         $ansible = new Ansible(
             $this->getProjectUri()
@@ -77,12 +78,12 @@ class AnsibleTest extends AnsibleTestCase
     }
 
     /**
-     * @expectedException \Asm\Ansible\Exception\CommandException
+     * @expectedException CommandException
      * @covers \Asm\Ansible\Ansible::checkCommand
      * @covers \Asm\Ansible\Ansible::checkDir
      * @covers \Asm\Ansible\Ansible::__construct
      */
-    public function testAnsibleCommandNotExecutableException()
+    public function testAnsibleCommandNotExecutableException(): void
     {
         $vfs = vfsStream::setup('/tmp');
         $ansiblePlaybook = vfsStream::newFile('ansible-playbook', 600)->at($vfs);
@@ -102,7 +103,7 @@ class AnsibleTest extends AnsibleTestCase
      * @covers \Asm\Ansible\Ansible::checkDir
      * @covers \Asm\Ansible\Ansible::__construct
      */
-    public function testPlaybookCommandInstance()
+    public function testPlaybookCommandInstance(): void
     {
         $ansible = new Ansible(
             $this->getProjectUri(),
@@ -112,7 +113,7 @@ class AnsibleTest extends AnsibleTestCase
 
         $playbook = $ansible->playbook();
 
-        $this->assertInstanceOf('\Asm\Ansible\Command\AnsiblePlaybook', $playbook);
+        $this->assertInstanceOf(AnsiblePlaybook::class, $playbook);
     }
 
     /**
@@ -122,7 +123,7 @@ class AnsibleTest extends AnsibleTestCase
      * @covers \Asm\Ansible\Ansible::checkDir
      * @covers \Asm\Ansible\Ansible::__construct
      */
-    public function testGalaxyCommandInstance()
+    public function testGalaxyCommandInstance(): void
     {
         $ansible = new Ansible(
             $this->getProjectUri(),
@@ -132,6 +133,6 @@ class AnsibleTest extends AnsibleTestCase
 
         $galaxy = $ansible->galaxy();
 
-        $this->assertInstanceOf('\Asm\Ansible\Command\AnsibleGalaxy', $galaxy);
+        $this->assertInstanceOf(AnsibleGalaxy::class, $galaxy);
     }
 }

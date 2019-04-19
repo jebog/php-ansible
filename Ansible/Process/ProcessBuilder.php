@@ -43,7 +43,6 @@ class ProcessBuilder implements ProcessBuilderInterface
     private $envVars;
 
     /**
-
      * ProcessBuilder constructor.
      *
      * @param string $prefix

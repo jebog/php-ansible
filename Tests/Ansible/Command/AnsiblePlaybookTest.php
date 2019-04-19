@@ -26,7 +26,7 @@ class AnsibleTest extends AnsibleTestCase
         $process = new ProcessBuilder($this->getPlaybookUri(), $this->getProjectUri());
         $ansible = new AnsiblePlaybook($process);
 
-        $this->assertInstanceOf('\Asm\Ansible\Command\AnsiblePlaybook', $ansible);
+        $this->assertInstanceOf(AnsiblePlaybook::class, $ansible);
 
         return $ansible;
     }
@@ -287,7 +287,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testModulePathArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testModulePathArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -310,7 +310,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testPrivateKeyArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testPrivateKeyArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -327,7 +327,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testSkipTagsArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testSkipTagsArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -356,7 +356,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testStartAtTaskArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testStartAtTaskArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -373,7 +373,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testStepArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testStepArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -390,7 +390,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testSuArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testSuArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -407,7 +407,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testSuUserArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testSuUserArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -430,7 +430,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testBecomeArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testBecomeArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -447,7 +447,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testBecomeUserArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testBecomeUserArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -470,7 +470,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testSyntaxCheckArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testSyntaxCheckArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -487,7 +487,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testTagsArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testTagsArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -516,7 +516,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testTimeoutArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testTimeoutArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -539,7 +539,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testUserArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testUserArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -556,7 +556,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testVaultPasswordFileArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testVaultPasswordFileArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -573,7 +573,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testVerboseArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testVerboseArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -596,7 +596,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testVersionArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testVersionArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -613,7 +613,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testFlushCacheParameterPresent(AnsiblePlaybookInterface $command)
+    public function testFlushCacheParameterPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -630,7 +630,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testNewVaultIdArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testNewVaultIdArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -647,7 +647,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testNewVaultPasswordFileArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testNewVaultPasswordFileArgumentPresent(AnsiblePlaybookInterface $command): ?AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -664,7 +664,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testScpExtraArgsArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testScpExtraArgsArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -681,7 +681,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testSftpExtraArgsArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testSftpExtraArgsArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -698,7 +698,7 @@ class AnsibleTest extends AnsibleTestCase
      * @param AnsiblePlaybookInterface $command
      * @return AnsiblePlaybookInterface
      */
-    public function testSshCommonArgsArgumentPresent(AnsiblePlaybookInterface $command)
+    public function testSshCommonArgsArgumentPresent(AnsiblePlaybookInterface $command): AnsiblePlaybookInterface
     {
         $command
             ->play($this->getPlayUri())
@@ -765,7 +765,7 @@ class AnsibleTest extends AnsibleTestCase
      * @depends testDefaultDeployment
      * @param AnsiblePlaybookInterface $command
      */
-    public function testExecuteWithCallback(AnsiblePlaybookInterface $command)
+    public function testExecuteWithCallback(AnsiblePlaybookInterface $command): void
     {
         $exitcode = $command
             ->execute(function ($type, $buffer) {
@@ -783,7 +783,7 @@ class AnsibleTest extends AnsibleTestCase
      * @depends testDefaultDeployment
      * @param AnsiblePlaybookInterface $command
      */
-    public function textExecuteWithTextOutput(AnsiblePlaybookInterface $command)
+    public function textExecuteWithTextOutput(AnsiblePlaybookInterface $command): void
     {
         $result = $command
             ->execute(null);
